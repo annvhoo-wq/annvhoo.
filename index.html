@@ -22,8 +22,10 @@ html{scroll-behavior:smooth}
 /* ── H1 white force ── */
 h1.hero-h1{color:#ffffff !important}
 h1.hero-h1,.hero-h1 *{-webkit-text-fill-color:#ffffff !important}
+/* ── SEO keyword bold ── */
 .kw{font-weight:800}
 
+/* ── TOKENS ── */
 :root{
   --bg:        #07060e;
   --bg2:       #0d0b1c;
@@ -31,6 +33,7 @@ h1.hero-h1,.hero-h1 *{-webkit-text-fill-color:#ffffff !important}
   --border:    rgba(255,255,255,.072);
   --hover:     rgba(255,255,255,.07);
 
+  /* palette */
   --pp: #b06fff;   /* purple */
   --pk: #f03e82;   /* pink   */
   --py: #ffc94a;   /* yellow */
@@ -109,6 +112,8 @@ nav{
 nav ul{list-style:none;display:flex;gap:34px}
 nav ul a{color:var(--t2);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .22s}
 nav ul a:hover{color:var(--t1)}
+/* nav-pill = desktop only CTA */
+.nav-pill{display:inline-flex}
 
 /* pill CTA button */
 .pill-btn{
@@ -212,39 +217,38 @@ h1.hero-h1{
 .hero-inner {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra los elementos hijos horizontalmente */
+  align-items: center;
   justify-content: center;
-  text-align: center; /* Centra el texto */
+  text-align: center;
   width: 100%;
-  max-width: 800px; /* Un poco más ancho para mejor lectura */
-  margin-top: -50px auto;    /* Centra el bloque de texto en la pantalla */
-  padding-top: 40px !important;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 40px;
   z-index: 2;
 }
 
 .hero-text-content {
-    align-self: flex-end !important;
-    rigth: 0.300px;
-    max-width: 550px;
+    align-self: flex-end;
+    max-width: 100%;
     z-index: 2;
 }
 
 .hero-inner > div {
   max-width: 660px;
-  margin-rigth: 0.500px !important; /* ESTO ES LA CLAVE: obliga al bloque de 660px a pegarse a la izquierda */
-  padding-left: 0 !important;
+  width: 100%;
+  padding-left: 0;
 }
 
 .hero-inner p {
-   text-align: center; /* Cambia el alineado de derecha a centro */
-  margin-left: auto;  /* Asegura centrado horizontal del bloque */
+   text-align: center;
+  margin-left: auto;
   margin-right: auto;
   max-width: 650px;
   position: relative;
-  top: -20px;   /* Opcional: para que no se vea demasiado ancho en PC */
+  top: -20px;
 }
 
-* Forzar que los botones no tengan márgenes extraños */
+/* Botones sin márgenes extraños */
 
 
 /* Asumiendo que el ID de la sección es 'servicios' */
@@ -308,16 +312,14 @@ h1{
 .hero-btns {
     display: flex !important;
     gap: 15px;
-    justify-content: center !important; 
-    margin-rigth:400% !important; 
+    justify-content: center !important;
     margin-bottom: 40px !important;
 }
 
 .hero-stats {
     display: flex !important;
     gap: 40px;
-    justify-content: center !important; /* Centra las métricas entre sí */
-    margin-rigth: 400px !important;      /* El mismo margen para alinearlos */
+    justify-content: center !important;
     width: 100%;
 }
 
@@ -504,27 +506,11 @@ h2{
 .wc p{font-size:.82rem;font-weight:400;color:var(--t2);line-height:1.62}
 
 /* ═══════════ CONTACT ═══════════ */
-/* El grid ahora le da más espacio a la izquierda */
 .cont-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* El formulario se ensancha mucho más */
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 32px;
   align-items: start;
-}
-
-/* En móvil, el formulario ocupa el 100% y los iconos se ponen abajo */
-@media (max-width: 1000px) {
-  .cont-grid {
-    grid-template-columns: 1fr;
-    
-  }
-}
-
-/* Contenedor de la derecha (60/40) */
-.cont-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* Formulario 60% / Contactos 40% */
-  gap: 32px;
 }
 
 .ci {
@@ -545,133 +531,38 @@ h2{
   margin-bottom: 30px;
 }
 
-/* Grupo de iconos */
 .chs {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-/* El botón del icono */
-.ch {
-  display: flex !important;
   align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: 50%; /* Circulares para un look más limpio */
-  transition: all .3s ease;
-  cursor: pointer;
 }
-
-.ch svg {
-  width: 26px;
-  height: 26px;
-}
-
-.ch:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* RESPONSIVE: En móvil todo al centro y en fila */
-@media (max-width: 1000px) {
-  .cont-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .chs {
-    flex-direction: row !important;
-    justify-content: center;
-    gap: 20px;
-  }
-}
-
-/* Ocultamos el texto descriptivo dentro de los contactos */
-.ch div, .ch p, .ch span {
-  display: none !important;
-}
-
-.ch .ch-info, 
-.ch span, 
-.ch p {
-  display: none !important;
-}
-
-.chs {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center; /* Centra los iconos en su columna */
-}
-
-
 
 .ch {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;  /* Tamaño táctil perfecto para celular */
+  width: 80px;
   height: 80px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 0; /* Quitamos padding para centrar el icono */
+  padding: 0;
   transition: transform .24s, border-color .24s;
+  cursor: pointer;
+  text-decoration: none;
 }
-
-.ch:hover {
-  border-color: var(--p1); /* Tu color principal */
-  transform: scale(1.1);
-}
+.ch svg { width: 26px; height: 26px; }
+.ch:hover { border-color: rgba(176,111,255,.35); background: var(--hover); transform: scale(1.08); }
 
 /* En móvil, los iconos se ponen en fila horizontal */
 @media (max-width: 1000px) {
-  .chs {
-    flex-direction: row !important;
-    justify-content: center;
-    gap: 25px;
-  }
+  .chs { flex-direction: row !important; justify-content: center; gap: 20px; }
 }
 
+/* Ocultar texto dentro de .ch si hubiera */
+.ch div, .ch p, .ch span { display: none !important; }
 
-
-/* Ocultar el texto descriptivo de los contactos */
-.contact-info-sidebar span, 
-.contact-info-sidebar p,
-.contact-info-sidebar h3 {
-    display: none !important;
-}
-
-/* Estilo para los iconos táctiles */
-.contact-icon-link {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    color: #fff;
-    text-decoration: none;
-}
-
-.contact-icon-link:hover {
-    background: #3a86ff; /* Tu color azul */
-    transform: translateY(-5px);
-}
-
-.contact-icon-link i {
-    font-size: 24px !important;
-    display: block !important;
-}
-
-.ch:hover{border-color:rgba(176,111,255,.35);background:var(--hover)}
 .ch-i{
   width:40px;height:40px;border-radius:11px;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
@@ -788,77 +679,123 @@ footer{border-top:1px solid var(--border);padding:42px 0;position:relative;z-ind
   font-size:1.2rem;color:var(--t1);
 }
 
-/* --- RESPONSIVE OPTIMIZADO --- */
-
+/* ── RESPONSIVE MOBILE ── */
 @media (max-width: 1000px) {
-    /* 1. Título y Párrafo */
-    .hero-inner h1 { 
-        font-size: 2.5rem !important;
-        margin-left: 0 !important; /* Quitamos el empuje a la derecha */
-        text-align: center;
-    }
 
-    .hero-inner p {
-        margin-left: auto !important;
-        margin-right: auto !important;
-        text-align: center !important;
-        padding: 0 20px; /* Evita que el texto toque los bordes del móvil */
-    }
+  /* NAV: ocultar links desktop y pill, mostrar hamburger */
+  nav ul,
+  nav .nav-pill { display: none !important; }
+  .hamburger   { display: flex !important; }
 
-    /* 2. Botones */
-    .hero-btns { 
-        flex-direction: column; 
-        align-items: center;
-        margin-left: 0 !important; /* IMPORTANTE: Quitamos el margen de 120px de PC */
-        justify-content: center !important;
-        gap: 15px;
-    }
+  /* HERO */
+  header[role="banner"] {
+    padding: 100px 0 60px !important;
+    padding-bottom: 80px !important;
+  }
+  .hero-inner {
+    align-items: center !important;
+    text-align: center !important;
+    padding-top: 0 !important;
+    max-width: 100% !important;
+  }
+  .hero-inner h1 {
+    font-size: 2.4rem !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+  .hero-inner p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 16px !important;
+    max-width: 100% !important;
+  }
+  .hero-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: center !important;
+    gap: 14px !important;
+  }
+  .hero-btns a { width: 100%; max-width: 300px; justify-content: center; }
+  .hero-stats {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+  }
 
-    /* 3. Métricas (Stats) */
-    .hero-stats {
-        margin-left: 0 !important; /* Quitamos el margen de 120px de PC */
-        justify-content: center !important;
-        flex-wrap: wrap; /* Para que si no caben las 3, bajen */
-        gap: 30px;
-    }
-}
+  /* PRICING: columna única */
+  .p-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .pcard.feat { transform: none !important; }
+  .pcard.feat:hover { transform: translateY(-8px) !important; }
 
-@media (max-width: 1000px) {
-    /* Ocultar el botón específico de Hablemos en el nav */
-    nav a.pill-btn, 
-    nav .nav-right,
-    nav a[href="#contact"] { 
-        display: none !important; 
-    }
+  /* PROCESO: 2 columnas en tablet, 1 en móvil pequeño */
+  .proc-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
 
-    /* Ajustar el contenedor del menú para que no sea tan ancho */
-    nav .wrap {
-        justify-content: space-between !important;
-        padding: 0 20px !important;
-    }
-}
+  /* WHY / POR QUÉ */
+  .why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .why-grid > div:first-child { text-align: center; }
+  .why-grid > div:first-child .s-sub { margin-left: auto; margin-right: auto; }
+  .why-grid > div:first-child .pill-btn { margin: 0 auto; }
+  .wc:hover { transform: none; }
 
-@media (max-width: 1000px) {
-    /* Ocultar el botón específico de Hablemos en el nav */
-    nav a.pill-btn, 
-    nav .nav-right,
-    nav a[href="#contact"] { 
-        display: none !important; 
-    }
+  /* CONTACT */
+  .cont-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .f-card { padding: 28px 20px !important; }
+  .f-row { grid-template-columns: 1fr !important; gap: 0 !important; }
 
-    /* Ajustar el contenedor del menú para que no sea tan ancho */
-    nav .wrap {
-        justify-content: space-between !important;
-        padding: 0 20px !important;
-    }
+  /* FOOTER */
+  .foot {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+  .f-nav { flex-wrap: wrap; gap: 16px; }
 }
 
 @media (max-width: 600px) {
-    nav {
-        width: 90% !important; /* No ocupa todo el ancho, deja ver el fondo */
-        left: 5% !important;   /* Lo centra */
-        margin: 10px auto !important;
-    }
+  nav {
+    width: calc(100% - 32px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 10px !important;
+    padding: 10px 16px !important;
+  }
+
+  /* HERO más compacto */
+  .hero-inner h1 { font-size: 2rem !important; }
+  .hero-stats > div { min-width: 90px; text-align: center; }
+
+  /* PROCESO: 1 columna */
+  .proc-grid { grid-template-columns: 1fr !important; }
+
+  /* WHY cards sin hover-shift */
+  .wc { gap: 14px !important; padding: 18px 16px !important; }
+
+  /* Secciones: menos padding vertical */
+  section { padding: 60px 0 !important; }
+  #proceso, #por-que, #contacto { padding: 70px 0 !important; }
+
+  /* wrap padding */
+  .wrap { padding: 0 16px !important; }
+
+  /* Footer */
+  .foot { padding: 0 16px !important; }
+  .f-copy { font-size: .72rem; }
 }
 
 </style>
